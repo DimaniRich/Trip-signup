@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body p-4">
+    <h1 class="h3 mb-3">Signups ({{ signups|length }})</h1>
+    {% if signups %}
+    <div class="table-responsive">
+      <table class="table table-striped mb-0">
+        <thead><tr><th>Name</th><th>Email</th><th>Major</th></tr></thead>
+        <tbody>
+          {% for name, email, major in signups %}
+          <tr><td>{{ name }}</td><td>{{ email }}</td><td>{{ major }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="text-muted mb-0">No signups yet.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
